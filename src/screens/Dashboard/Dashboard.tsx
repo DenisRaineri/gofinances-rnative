@@ -1,6 +1,9 @@
 import React from 'react';
 import {HighlightComponent} from '../../components/HighlightCard/HighlightCard';
-import {TransactionCard} from '../../components/TransactionCard/TransactionCard';
+import {
+  TransactionCard,
+  TransactionCardProps,
+} from '../../components/TransactionCard/TransactionCard';
 import {
   UserName,
   Header,
@@ -17,9 +20,15 @@ import {
   TransactionList,
 } from './styles';
 
+export interface DataListProps extends TransactionCardProps {
+  id: string;
+}
+
 function Dashboard() {
-  const data = [
+  const data: DataListProps[] = [
     {
+      id: '1',
+      type: 'positive',
       title: 'Bolo de pote - Ninho com morango',
       amount: 'R$ 10.000,00',
       category: {
@@ -29,20 +38,24 @@ function Dashboard() {
       date: '13/04/2021',
     },
     {
+      id: '2',
+      type: 'negative',
       title: 'Bolo de pote - Ninho com Nutella',
-      amount: 'R$ 18.000,00',
+      amount: 'R$ 52,00',
       category: {
-        name: 'Vendas',
-        icon: 'dollar-sign',
+        name: 'Alimentação',
+        icon: 'coffee',
       },
       date: '13/04/2021',
     },
     {
-      title: 'Bolo de pote - Ninho com Ninho',
-      amount: 'R$ 30.000,00',
+      id: '3',
+      type: 'negative',
+      title: 'Aluguel do apartamento',
+      amount: 'R$ 2.000,00',
       category: {
-        name: 'Vendas',
-        icon: 'dollar-sign',
+        name: 'Casa',
+        icon: 'shopping-bag',
       },
       date: '13/04/2021',
     },
@@ -91,8 +104,8 @@ function Dashboard() {
         <Title>Title</Title>
         <TransactionList
           data={data}
+          keyExtractor={item => item.id}
           renderItem={({item}) => <TransactionCard data={item} />}
-          showsVerticalScrollIndicator={false}
         />
       </Transactions>
     </Container>

@@ -1,6 +1,8 @@
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {FlatList, FlatListProps} from 'react-native';
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native';
+import {DataListProps} from './Dashboard';
 
 export const Container = styled.View`
   background-color: ${({theme}) => theme.colors.background};
@@ -85,4 +87,10 @@ export const Title = styled.Text`
   font-family: ${({theme}) => theme.fonts.regular};
 `;
 
-export const TransactionList = styled.FlatList``;
+export const TransactionList = styled(
+  FlatList as new (
+    props: FlatListProps<DataListProps>,
+  ) => FlatList<DataListProps>,
+).attrs({
+  showsVerticalScrollIndicator: false,
+})``;
