@@ -48,6 +48,7 @@ export const User = styled.View`
 
 export const UserWrapper = styled.View`
   width: 100%;
+  margin-top: -${RFValue(150)}px;
   padding: 0 24px;
 
   justify-content: space-between;
@@ -56,6 +57,14 @@ export const UserWrapper = styled.View`
 `;
 
 export const Icons = styled(Icon)`
-  font-size: ${RFValue(24)}px;
+  font-size: ${RFValue(20)}px;
   color: ${({theme}) => theme.colors.secondary};
+`;
+
+export const HighlightCards = styled.ScrollView.attrs({
+  horizontal: true,
+  showsHorizontalScrollIndicator: true,
+  contentContainerStyle: {paddingHorizontal: 24},
+})`
+  margin-top: -${RFValue(160)}px;
 `;
