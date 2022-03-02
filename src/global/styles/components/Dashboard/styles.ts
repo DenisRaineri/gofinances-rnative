@@ -1,10 +1,10 @@
-import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
+import styled from 'styled-components/native';
 
 export const Container = styled.View`
+  background-color: ${({theme}) => theme.colors.background};
   flex: 1;
-  color: ${({theme}) => theme.colors.background};
 `;
 
 export const Header = styled.View`
@@ -58,6 +58,7 @@ export const UserWrapper = styled.View`
 
 export const Icons = styled(Icon)`
   font-size: ${RFValue(20)}px;
+  font-weight: ${({theme}) => theme.fonts.light};
   color: ${({theme}) => theme.colors.secondary};
 `;
 
